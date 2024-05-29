@@ -27,3 +27,21 @@ typeof null
 
 - `+` is both concatenation and addition (`'2' + '2'` is `'22'`);
 - `-` is only subtraction and arguments are coerced to numbers (`'22' - 2` is `20`).
+
+---
+
+### `typeof` undeclared
+
+```js
+console.log(abc)
+// Uncaught ReferenceError: abc is not defined
+```
+
+```js
+console.log(typeof abc)
+// 'undefined'
+```
+
+**Explanation**
+
+`typeof` operator can check whether the variable has been declared.
