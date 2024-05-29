@@ -10,4 +10,5 @@ typeof null
 // 'object'
 ```
 
-Explanation: https://stackoverflow.com/a/7968470
+**[Explanation](https://stackoverflow.com/a/7968470)**<br/>
+`null` is not an object, but a primitive value. `typeof null` returning `'object'` is bug, which is not fixed for the backward-compatability.
