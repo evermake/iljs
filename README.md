@@ -10,7 +10,8 @@ typeof null
 // 'object'
 ```
 
-**[Explanation](https://stackoverflow.com/a/7968470)**<br/>
+**[Explanation](https://stackoverflow.com/a/7968470)**
+
 `null` is not an object, but a primitive value. `typeof null` returning `'object'` is bug, which is not fixed for the backward-compatability.
 
 ---
@@ -22,6 +23,7 @@ typeof null
 // 20
 ```
 
-**[Explanation](https://stackoverflow.com/a/48675918)**<br/>
+**[Explanation](https://stackoverflow.com/a/48675918)**
+
 - `+` is both concatenation and addition (`'2' + '2'` is `'22'`);
 - `-` is only subtraction and arguments are coerced to numbers (`'22' - 2` is `20`).
