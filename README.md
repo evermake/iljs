@@ -12,7 +12,7 @@ typeof null
 
 **[Explanation](https://stackoverflow.com/a/7968470)**
 
-`null` is not an object, but a primitive value. `typeof null` returning `'object'` is bug, which is not fixed for the backward-compatability.
+`null` is not an object, but a primitive value. `typeof null` returning `'object'` is a bug, which is not fixed due to backward-compatability.
 
 ---
 
@@ -45,3 +45,61 @@ console.log(typeof abc)
 **Explanation**
 
 `typeof` operator can check whether the variable has been declared.
+
+---
+
+### [sparse arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays)
+
+```js
+console.log(Array(5))
+// [ <5 empty items> ]
+
+const arr = [1,,,2,,,3]
+
+console.log(arr.length)
+// 7
+
+arr.forEach((item, idx) => console.log(item, idx))
+// 1 0
+// 2 3
+// 3 6
+
+console.log(JSON.stringify(arr))
+// '[1,null,null,2,null,null,3]'
+
+const arr2 = [...arr]
+arr2.forEach((item, idx) => console.log(item, idx))
+// 1 0
+// undefined 1
+// undefined 2
+// 2 3
+// undefined 4
+// undefined 5
+// 3 6
+
+arr[1000] = 1
+
+console.log(arr.length)
+// 1001
+
+console.log(arr)
+// [ 1, <2 empty items>, 2, <2 empty items>, 3, <993 empty items>, 1 ]
+```
+
+**Story**
+
+Someday I was writing a Telegram bot and spent several hours debugging one issue.
+
+Bot had logging functionality and logged something `JSON.stringif`ied, and after some changes I got an error:
+
+```
+FATAL ERROR: JS Allocation failed - process out of memory
+```
+
+In short, the problem was that I was setting some array's item by _Telegram user's ID_ (which was big like 987654321). So JS tried to stringify an array with nine hundred eighty-seven million six hundred fifty-four thousand three hundred twenty-one `null` and ran out of memory:
+
+```js
+arr[user.id] = 'hi'
+JSON.stringify(arr)
+// FATAL ERROR: JS Allocation failed - process out of memory
+```
