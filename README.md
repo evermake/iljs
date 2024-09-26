@@ -103,3 +103,25 @@ arr[user.id] = 'hi'
 JSON.stringify(arr)
 // FATAL ERROR: JS Allocation failed - process out of memory
 ```
+
+---
+
+### `parseInt`
+
+```js
+parseInt(0.5)
+// 0
+
+parseInt(0.005)
+// 0
+
+parseInt(0.0000005)
+// 5
+```
+
+**Explanation**
+
+- The `parseInt` function _converts its first argument to a string_, parses that string, then returns an integer or `NaN`.
+- If `parseInt` encounters a character that is not a numeral in the specified `radix`, it _ignores it and all succeeding characters_ and returns the integer value parsed up to that point.
+- `(0.5).toString()` -> `'0.5'`
+- `(0.0000005).toString()` -> `'5e-7'`
