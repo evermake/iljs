@@ -128,3 +128,19 @@ parseInt(0.0000005)
 - If `parseInt` encounters a character that is not a numeral in the specified `radix`, it _ignores it and all succeeding characters_ and returns the integer value parsed up to that point.
 - `(0.5).toString()` -> `'0.5'`
 - `(0.0000005).toString()` -> `'5e-7'`
+
+---
+
+### `018 === 022`
+
+```js
+018 === 022
+// true
+```
+
+**Explanation**
+
+- A leading `0` on an integer literal, or a leading `0o` (or `0O`) indicates it is in octal. Octal integer literals can include only the digits `0` – `7`. ([MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#numeric_literals))
+- `022` starts with `0` => it's in octal
+- `018` contains `8` => it's not in octal, but in decimal
+- `22` in octal = `18` in decimal
