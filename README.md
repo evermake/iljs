@@ -86,7 +86,8 @@ console.log(arr)
 // [ 1, <2 empty items>, 2, <2 empty items>, 3, <993 empty items>, 1 ]
 ```
 
-**Story**
+<details>
+<summary>Story</summary>
 
 Someday I was writing a Telegram bot and spent several hours debugging one issue.
 
@@ -103,6 +104,8 @@ arr[user.id] = 'hi'
 JSON.stringify(arr)
 // FATAL ERROR: JS Allocation failed - process out of memory
 ```
+
+</details>
 
 ---
 
