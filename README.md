@@ -1,3 +1,7 @@
+> "Imperfection is beauty, madness is genius and it's better to be absolutely ridiculous than absolutely boring."
+
+---
+
 ### subjective `null`
 
 ```js
