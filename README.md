@@ -148,3 +148,23 @@ parseInt(0.0000005)
 - `022` starts with `0` => it's in octal
 - `018` contains `8` => it's not in octal, but in decimal
 - `22` in octal = `18` in decimal
+
+---
+
+### [object wrappers](https://javascript.info/primitives-methods#a-primitive-as-an-object)
+
+```js
+let x = 'hi'
+
+x.lang
+// undefined
+
+x.lang = 'eng'
+// 'eng'
+
+x.lang
+// undefined
+
+'lang' in x
+// TypeError: Cannot use 'in' operator to search for 'lang' in hi
+```
