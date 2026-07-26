@@ -6,7 +6,7 @@
 
 ```js
 {} instanceof null
-// Uncaught TypeError: Right-hand side of 'instanceof' is not an object
+// TypeError: Right-hand side of 'instanceof' is not an object
 ```
 
 ```js
@@ -38,7 +38,7 @@ typeof null
 
 ```js
 console.log(abc)
-// Uncaught ReferenceError: abc is not defined
+// ReferenceError: abc is not defined
 ```
 
 ```js
